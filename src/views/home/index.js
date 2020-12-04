@@ -1,8 +1,12 @@
+import Header from "../../components/Header";
 
 function Home() {
   return (
-    <div className="App">
-      <h1>首页</h1>
+    <div>
+      <Header />
+      <div className="container">
+        <h1>首页</h1>
+      </div>
     </div>
   );
 }
