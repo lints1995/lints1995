@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/scss/reset.scss";
-import './assets/scss/common.scss'
+import "./assets/scss/common.scss";
 import router from "./router";
 
 ReactDOM.render(router, document.getElementById("root"));

@@ -5,7 +5,7 @@ function Project() {
     <div>
       <Header />
       <div className="container">
-        <h1>项目</h1>
+        <h1>简历</h1>
       </div>
     </div>
   );

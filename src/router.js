@@ -1,7 +1,11 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
 
 import Home from "./views/home";
-import Project from "./views/project";
+import Resume from "./views/resume";
 
 const routeParams = [
   {
@@ -9,8 +13,8 @@ const routeParams = [
     component: Home,
   },
   {
-    path: "/project",
-    component: Project,
+    path: "/resume",
+    component: Resume,
   },
 ];
 
