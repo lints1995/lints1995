@@ -1,22 +1,22 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import HEADER_MENU from "../../constant/headerMenu";
-import styles from "./index.scss";
+import "./index.scss";
 
 class Header extends React.Component {
   render() {
     return (
-      <header className={styles.header}>
-        <ul className="items">
+      <header className="header">
+        <ul className="header-items">
           {HEADER_MENU.map((item) => {
             return (
-              <li className="item" key={item.id}>
+              <li className="header-item" key={item.id}>
                 {item.path.includes("http") ? (
                   <a href={item.path} target="_blank" rel="noreferrer">
                     {item.name}
                   </a>
                 ) : (
-                  <Link className="link" to={item.path}>
+                  <Link className="header-link" to={item.path}>
                     {item.name}
                   </Link>
                 )}
