@@ -5,7 +5,7 @@ function Home() {
     <div>
       <Header />
       <div className="container">
-        <h1>首页</h1>
+        <h1>首页显示</h1>
       </div>
     </div>
   );
