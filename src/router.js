@@ -11,7 +11,7 @@ const routeParams = [
   {
     path: "/resume",
     component: Resume,
-  },
+  }
 ];
 
 export default (
