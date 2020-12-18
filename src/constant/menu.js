@@ -1,5 +1,5 @@
 // 头部导航菜单配置
-const HEADER_MENU = [
+const MENU = [
   {
     id: 1,
     name: "首页",
@@ -16,4 +16,4 @@ const HEADER_MENU = [
     path: "http://note.youdao.com/s/AW2uaAEO",
   },
 ];
-export default HEADER_MENU;
+export default MENU;

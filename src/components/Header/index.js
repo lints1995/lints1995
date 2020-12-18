@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import HEADER_MENU from "../../constant/headerMenu";
+import MENU from "../../constant/menu";
 import styles from "./index.module.scss";
 
 class Header extends React.Component {
@@ -13,7 +13,7 @@ class Header extends React.Component {
     return (
       <header className={styles.header}>
         <ul className={styles.items}>
-          {HEADER_MENU.map((item) => {
+          {MENU.map((item) => {
             return (
               <li className={styles.item} key={item.id}>
                 {item.path.includes("http") || item.path.includes("https") ? (

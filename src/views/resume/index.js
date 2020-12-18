@@ -1,15 +1,17 @@
 import Header from "../../components/Header";
-import PROJECT_LISTS from "../../constant/projectLists";
 import Project from "./Project";
+// import Skill from "./Skill";
+// import styles from "./index.module.scss";
 
 function Resume() {
   return (
     <div>
       <Header />
       <div className="container">
-        {PROJECT_LISTS.map((item) => {
-          return Project(item);
-        })}
+        {/* <h1 className={styles.title}>技能</h1>
+        <Skill /> */}
+        {/* <h1 className={styles.title}>项目经验</h1> */}
+        <Project />
       </div>
     </div>
   );

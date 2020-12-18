@@ -10,7 +10,7 @@
   images: [], // 项目相关介绍图片
  */
 
-const PROJECT_LISTS = [
+const PROJECT = [
   {
     id: 1,
     name: "鲜活Go-后台管理系统",
@@ -39,10 +39,15 @@ const PROJECT_LISTS = [
   },
   {
     id: 3,
-    name: "有信展业-管理系统",
-    discription: "",
-    content: ``,
-    summary: "",
+    name: "有信展业-后台管理系统",
+    discription: "帮助信贷经理获客平台，大数据分析识别推送精准信贷单",
+    content: `1.参与项目需求评审和讨论;<br/>
+      2.使用Vue全家桶搭建项目前端;<br/>
+      3.负责权限，运营，统计，首页大屏模块开发和H5推广，分享页面;<br/>
+      4.按照UI要求还原设计图;<br/>
+      5.及时处理测试反馈bug，确保按时上线;<br/>`,
+    summary:
+      "解决H5转盘抽奖游戏动画卡顿问题，使动画更加流畅；对公共模块进行封装，方便使用和修改；对代码风格进行统一，方便维护；适配自动化部署调整Vue-cli打包配置",
     startTime: "",
     endTime: "",
     images: [],
@@ -71,7 +76,8 @@ const PROJECT_LISTS = [
     content: `1.使用React搭建项目;<br/>
      2.采用原生App和H5混合开发，主要负责商品详情，评论，分享，支付(微信，支付宝)等模块重构开发;<br/>
      3.自测和及时处理测试反馈的bug，高质量的校验保证上线顺利;<br/>`,
-    summary: "嘿呗项目加深了自己对混开App的开发体系理解，统一封装安卓和IOS方法调用，并适配不同内核的webview。",
+    summary:
+      "嘿呗项目加深了自己对混开App的开发体系理解，统一封装安卓和IOS方法调用，并适配不同内核的webview。",
     startTime: "",
     endTime: "",
     images: [],
@@ -93,4 +99,4 @@ const PROJECT_LISTS = [
   },
 ];
 
-export default PROJECT_LISTS;
+export default PROJECT;
