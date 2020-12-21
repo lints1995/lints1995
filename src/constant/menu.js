@@ -7,8 +7,8 @@ const MENU = [
   },
   {
     id: 3,
-    name: "简历",
-    path: "/resume",
+    name: "项目",
+    path: "/project",
   },
   {
     id: 2,

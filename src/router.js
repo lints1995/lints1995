@@ -1,7 +1,7 @@
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./views/home";
-import Resume from "./views/resume";
+import Project from "./views/project";
 
 const routeParams = [
   {
@@ -9,9 +9,9 @@ const routeParams = [
     component: Home,
   },
   {
-    path: "/resume",
-    component: Resume,
-  }
+    path: "/project",
+    component: Project,
+  },
 ];
 
 export default (

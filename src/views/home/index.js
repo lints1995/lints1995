@@ -4,9 +4,7 @@ function Home() {
   return (
     <div>
       <Header />
-      <div className="container">
-        <h1>首页显示</h1>
-      </div>
+      <div className="container"></div>
     </div>
   );
 }
