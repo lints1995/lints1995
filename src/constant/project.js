@@ -29,7 +29,7 @@ const PROJECT = [
   },
   {
     id: 2,
-    name: "鲜活Go-微信公众号",
+    name: "鲜活Go-微信小程序",
     discription: "",
     content: ``,
     summary: ``,
