@@ -16,7 +16,7 @@ function Home() {
   return (
     <div>
       <Header />
-      {!isShow ? <Loading /> : <div className="container">Hello</div>}
+      {!isShow ? <Loading /> : <div className="container">hello</div>}
     </div>
   );
 }

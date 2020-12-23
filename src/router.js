@@ -2,6 +2,7 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./views/home";
 import Project from "./views/project";
+import Detail from "./views/detail";
 
 const routeParams = [
   {
@@ -11,6 +12,10 @@ const routeParams = [
   {
     path: "/project",
     component: Project,
+  },
+  {
+    path: "/detail",
+    component: Detail,
   },
 ];
 
