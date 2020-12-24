@@ -14,7 +14,7 @@ const routeParams = [
     component: Project,
   },
   {
-    path: "/detail",
+    path: "/detail/:md",
     component: Detail,
   },
 ];

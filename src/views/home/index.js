@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading";
+import NOTE from "../../constant/note";
+import styles from "./index.module.scss";
 
 function Home() {
   const [isShow, setIsShow] = useState(false);
@@ -16,7 +19,26 @@ function Home() {
   return (
     <div>
       <Header />
-      {!isShow ? <Loading /> : <div className="container">hello</div>}
+      {!isShow ? (
+        <Loading />
+      ) : (
+        <div className="container">
+          <ul>
+            {NOTE.map((item) => {
+              return (
+                <li key={item.id} className={styles.item}>
+                  <Link
+                    to={`/detail/${item.name}`}
+                    className={styles["item-text"]}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
