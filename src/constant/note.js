@@ -5,7 +5,7 @@ const NOTE = [
   },
   {
     id: 2,
-    name: "js知识总结",
+    name: "JS知识总结",
   },
   {
     id: 3,
