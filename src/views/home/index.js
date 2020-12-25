@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading";
 import NOTE from "../../constant/note";
+import timeLogo from "../../assets/images/icon_time.png";
 import styles from "./index.module.scss";
 
 function Home() {
@@ -10,7 +11,7 @@ function Home() {
   useEffect(() => {
     let timer = setTimeout(() => {
       setIsShow(true);
-    }, 1000);
+    }, 500);
     return () => {
       clearTimeout(timer);
     };
@@ -27,11 +28,19 @@ function Home() {
             {NOTE.map((item) => {
               return (
                 <li key={item.id} className={styles.item}>
-                  <Link
-                    to={`/detail/${item.name}`}
-                    className={styles["item-text"]}
-                  >
-                    {item.name}
+                  <Link to={`/detail/${item.name}`}>
+                    <h1 className={styles["item-title"]}> {item.name}</h1>
+                    <p className={styles["item-desc"]}>{item.description}</p>
+                    <p className={styles["item-time-wrap"]}>
+                      <img
+                        className={styles["item-time-icon"]}
+                        src={timeLogo}
+                        alt="icon"
+                      />
+                      <span className={styles["item-time-text"]}>
+                        {item.date}
+                      </span>
+                    </p>
                   </Link>
                 </li>
               );
