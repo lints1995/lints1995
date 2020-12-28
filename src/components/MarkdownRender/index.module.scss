@@ -80,18 +80,17 @@
 .catalog-active,
 .catalog-default {
   position: absolute;
-  width: 4px;
+  width: 3px;
   height: 20px;
 }
 .catalog-active {
   background: #42b983;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 .catalog-text-active {
   color: #42b983;
-  font-weight: 600;
-  text-indent: 12px;
+  text-indent: 8px;
 }
 .catalog-text-default {
-  text-indent: 12px;
+  text-indent: 8px;
 }

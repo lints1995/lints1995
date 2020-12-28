@@ -1,10 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import md from "markdown-it";
-// import Loading from "../../components/Loading";
 import hljs from "highlight.js";
-import "highlight.js/styles/atom-one-dark.css";
 import { getRequest } from "../../assets/js/request";
+import "highlight.js/styles/atom-one-dark.css";
 import styles from "./index.module.scss";
 
 class MarkdownRender extends React.Component {
@@ -73,10 +72,10 @@ class MarkdownRender extends React.Component {
       currentSelectCatalog: text,
     });
     let element = document.getElementById(text);
-    element.scrollIntoView();
-  }
-  detailJSX() {
-    return <div></div>;
+    console.log(element.getBoundingClientRect());
+    element.scrollIntoView({
+      behavior: "smooth",
+    });
   }
   render() {
     return (

@@ -4,7 +4,7 @@
 
 - 盒子模型构成：content+padding+border+margin
 
-# 区别
+## 区别
 
 1. 标准盒子模型：width(包含：content)
 2. IE 盒子模型（ie5,6）：width(包含：content+padding+border)
