@@ -1,47 +1,43 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "highlight.js/styles/atom-one-dark.css";
 import md from "markdown-it";
 import hljs from "highlight.js";
 import { getRequest } from "../../assets/js/request";
-import "highlight.js/styles/atom-one-dark.css";
 import styles from "./index.module.scss";
+// import closeIcon from "../../assets/images/close.png";
 
 class MarkdownRender extends React.Component {
   constructor(props) {
     super(props);
     this.getContent = this.getContent.bind(this);
+    this.generateContentCatalog = this.generateContentCatalog.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       content: "",
       titleLists: [],
       currentSelectCatalog: "",
       isShow: false,
-      timer: null,
     };
   }
   componentDidMount() {
     this.getContent();
-    let timer = setTimeout(() => {
-      let titleArr = document.getElementsByTagName("h1");
-      let arr = [];
-      for (let index = 0; index < titleArr.length; index++) {
-        const element = titleArr[index];
-        let textContent = element.textContent;
-        arr.push(textContent);
-        element.setAttribute("id", `${textContent}`);
-      }
-      this.setState({
-        isShow: true,
-        titleLists: arr,
-        currentSelectCatalog: arr.length > 0 ? arr[0] : "",
-      });
-    }, 300);
-    this.setState({
-      timer,
-    });
   }
-  componentWillUnmount() {
-    clearTimeout(this.state.timer);
+  generateContentCatalog() {
+    // 生成一级菜单
+    let titleArr = document.getElementsByTagName("h1");
+    let arr = [];
+    for (let index = 0; index < titleArr.length; index++) {
+      const element = titleArr[index];
+      let textContent = element.textContent;
+      arr.push(textContent);
+      element.setAttribute("id", `${textContent}`);
+    }
+    this.setState({
+      isShow: true,
+      titleLists: arr,
+      currentSelectCatalog: arr.length > 0 ? arr[0] : "",
+    });
   }
   getContent() {
     getRequest({
@@ -65,6 +61,7 @@ class MarkdownRender extends React.Component {
       this.setState({
         content: data.replace("<p>[TOC]</p>", ""), // 删除markdown文件的目录标示
       });
+      this.generateContentCatalog();
     });
   }
   handleClick(text) {
@@ -72,7 +69,6 @@ class MarkdownRender extends React.Component {
       currentSelectCatalog: text,
     });
     let element = document.getElementById(text);
-    console.log(element.getBoundingClientRect());
     element.scrollIntoView({
       behavior: "smooth",
     });
@@ -80,26 +76,26 @@ class MarkdownRender extends React.Component {
   render() {
     return (
       <div className={styles["detail-container"]}>
-        <ul className={styles["catalog-wrap"]}>
+        <ul className="catalog-wrap">
           {this.state.titleLists.map((el, index) => {
             return (
               <li
-                className={styles.catalog}
+                className="catalog"
                 key={index}
                 onClick={() => this.handleClick(el)}
               >
                 <i
                   className={
                     this.state.currentSelectCatalog === el
-                      ? styles["catalog-active"]
-                      : styles["catalog-default"]
+                      ? "catalog-active"
+                      : "catalog-default"
                   }
                 ></i>
                 <p
                   className={
                     this.state.currentSelectCatalog === el
-                      ? styles["catalog-text-active"]
-                      : styles["catalog-text-default"]
+                      ? "catalog-text-active"
+                      : "catalog-text-default"
                   }
                 >
                   {el}

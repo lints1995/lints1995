@@ -1,7 +1,9 @@
 .loading-bg {
+  position: absolute;
   width: 100%;
   height: calc(100vh - 52px);
-  position: fixed;
+  left: 0;
+  top: 0;
   background: #fff;
   z-index: 999;
 }

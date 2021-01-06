@@ -21,7 +21,9 @@ function Home() {
     <div>
       <Header />
       {!isShow ? (
-        <Loading />
+        <div className="container-loading">
+          <Loading />
+        </div>
       ) : (
         <div className="container">
           <ul>

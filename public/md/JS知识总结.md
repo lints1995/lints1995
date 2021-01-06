@@ -2,11 +2,11 @@
 
 # 基本数据类型
 
-```js
+```javascript
 String、Boolean、Number、Null、undefined、Object
 ```
 
-# 检测数据类型方法
+检测数据类型方法
 
 ```js
 Object.prototype.toString.call(value).slice(8, -1);

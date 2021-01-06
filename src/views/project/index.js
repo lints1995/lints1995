@@ -18,7 +18,9 @@ function Project() {
     <div>
       <Header />
       {!isShow ? (
-        <Loading />
+        <div className="container-loading">
+          <Loading />
+        </div>
       ) : (
         <div className="container">
           <Index />
