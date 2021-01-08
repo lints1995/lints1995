@@ -1,7 +1,12 @@
 .header {
+  position: fixed;
   width: 100%;
   height: 50px;
   border: 1px solid #efefef;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: 998;
 }
 .items {
   display: flex;

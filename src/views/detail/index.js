@@ -13,7 +13,7 @@ function Detail() {
     };
   }, []); // 优化传递一个空数组让useEffect函数执行一次
   return (
-    <div className="container">
+    <div className="detail-container">
       {!isShow ? <Loading /> : <MarkdownRender />}
     </div>
   );

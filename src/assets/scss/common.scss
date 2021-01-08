@@ -1,7 +1,14 @@
-.container {
+.container,
+.detail-container {
   width: 60%;
   height: auto;
-  margin: 20px auto 100px auto;
+}
+.container {
+  margin: 82px auto 120px auto;
+}
+
+.detail-container {
+  margin: 20px auto 120px auto;
 }
 .container-loading {
   position: fixed;
