@@ -1,9 +1,10 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import "highlight.js/styles/atom-one-dark.css";
 import md from "markdown-it";
 import hljs from "highlight.js";
 import { getRequest } from "../../assets/js/request";
+import "highlight.js/styles/atom-one-dark.css";
+import resetMDStyles from "./resetMD.module.scss";
 import styles from "./index.module.scss";
 import menuIcon from "../../assets/images/menu.png";
 import closeIcon from "../../assets/images/close.png";
@@ -24,20 +25,22 @@ class MarkdownRender extends React.Component {
       isShow: false,
       isShowCatalog: false,
       windowWidth: 0,
+      minWindowSize: 1024,
     };
   }
   componentDidMount() {
+    this.getWindowWidth();
     this.monitorWindowResize();
     this.getContent();
   }
-  monitorWindowResize() {
+  getWindowWidth() {
     this.setState({
       windowWidth: document.body.offsetWidth,
     });
+  }
+  monitorWindowResize() {
     window.onresize = () => {
-      this.setState({
-        windowWidth: document.body.offsetWidth,
-      });
+      this.getWindowWidth();
     };
   }
   generateContentCatalog() {
@@ -82,7 +85,7 @@ class MarkdownRender extends React.Component {
     });
   }
   handleClick(text) {
-    if (this.state.windowWidth <= 1024) {
+    if (this.state.windowWidth <= this.state.minWindowSize) {
       this.setState({
         isShowCatalog: false,
       });
@@ -107,14 +110,19 @@ class MarkdownRender extends React.Component {
     return (
       <div className={styles["detail-container"]}>
         <img
-          className={this.state.windowWidth > 1024 ? "need-hide" : "menu-icon"}
+          className={
+            this.state.windowWidth > this.state.minWindowSize
+              ? "need-hide"
+              : "menu-icon"
+          }
           src={menuIcon}
           alt="menu"
           onClick={this.handleShowMenu}
         />
         <div
           className={
-            this.state.windowWidth <= 1024 && !this.state.isShowCatalog
+            this.state.windowWidth <= this.state.minWindowSize &&
+            !this.state.isShowCatalog
               ? "need-hide"
               : "catalog-box"
           }
@@ -149,7 +157,9 @@ class MarkdownRender extends React.Component {
           </ul>
           <img
             className={
-              this.state.windowWidth > 1024 ? "need-hide" : "close-icon"
+              this.state.windowWidth > this.state.minWindowSize
+                ? "need-hide"
+                : "close-icon"
             }
             onClick={this.handleCloseMenu}
             src={closeIcon}
@@ -158,7 +168,7 @@ class MarkdownRender extends React.Component {
         </div>
 
         <div
-          className={styles["content"]}
+          className={resetMDStyles["content"]}
           dangerouslySetInnerHTML={{ __html: this.state.content }}
         ></div>
       </div>
