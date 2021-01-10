@@ -5,7 +5,8 @@ import md from "markdown-it";
 import hljs from "highlight.js";
 import { getRequest } from "../../assets/js/request";
 import styles from "./index.module.scss";
-// import closeIcon from "../../assets/images/close.png";
+import menuIcon from "../../assets/images/menu.png";
+import closeIcon from "../../assets/images/close.png";
 
 class MarkdownRender extends React.Component {
   constructor(props) {
@@ -13,15 +14,31 @@ class MarkdownRender extends React.Component {
     this.getContent = this.getContent.bind(this);
     this.generateContentCatalog = this.generateContentCatalog.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleShowMenu = this.handleShowMenu.bind(this);
+    this.handleCloseMenu = this.handleCloseMenu.bind(this);
+    this.monitorWindowResize = this.monitorWindowResize.bind(this);
     this.state = {
       content: "",
       titleLists: [],
       currentSelectCatalog: "",
       isShow: false,
+      isShowCatalog: false,
+      windowWidth: 0,
     };
   }
   componentDidMount() {
+    this.monitorWindowResize();
     this.getContent();
+  }
+  monitorWindowResize() {
+    this.setState({
+      windowWidth: document.body.offsetWidth,
+    });
+    window.onresize = () => {
+      this.setState({
+        windowWidth: document.body.offsetWidth,
+      });
+    };
   }
   generateContentCatalog() {
     // 生成一级菜单
@@ -65,6 +82,11 @@ class MarkdownRender extends React.Component {
     });
   }
   handleClick(text) {
+    if (this.state.windowWidth <= 1024) {
+      this.setState({
+        isShowCatalog: false,
+      });
+    }
     this.setState({
       currentSelectCatalog: text,
     });
@@ -73,37 +95,68 @@ class MarkdownRender extends React.Component {
       behavior: "smooth",
     });
   }
+  handleShowMenu() {
+    this.setState({
+      isShowCatalog: !this.state.isShowCatalog,
+    });
+  }
+  handleCloseMenu() {
+    this.handleShowMenu();
+  }
   render() {
     return (
       <div className={styles["detail-container"]}>
-        <ul className="catalog-wrap">
-          {this.state.titleLists.map((el, index) => {
-            return (
-              <li
-                className="catalog"
-                key={index}
-                onClick={() => this.handleClick(el)}
-              >
-                <i
-                  className={
-                    this.state.currentSelectCatalog === el
-                      ? "catalog-active"
-                      : "catalog-default"
-                  }
-                ></i>
-                <p
-                  className={
-                    this.state.currentSelectCatalog === el
-                      ? "catalog-text-active"
-                      : "catalog-text-default"
-                  }
+        <img
+          className={this.state.windowWidth > 1024 ? "need-hide" : "menu-icon"}
+          src={menuIcon}
+          alt="menu"
+          onClick={this.handleShowMenu}
+        />
+        <div
+          className={
+            this.state.windowWidth <= 1024 && !this.state.isShowCatalog
+              ? "need-hide"
+              : "catalog-box"
+          }
+        >
+          <ul className="catalog-wrap">
+            {this.state.titleLists.map((el, index) => {
+              return (
+                <li
+                  className="catalog"
+                  key={index}
+                  onClick={() => this.handleClick(el)}
                 >
-                  {el}
-                </p>
-              </li>
-            );
-          })}
-        </ul>
+                  <i
+                    className={
+                      this.state.currentSelectCatalog === el
+                        ? "catalog-active"
+                        : "catalog-default"
+                    }
+                  ></i>
+                  <p
+                    className={
+                      this.state.currentSelectCatalog === el
+                        ? "catalog-text-active"
+                        : "catalog-text-default"
+                    }
+                  >
+                    {el}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+          <img
+            className={
+              this.state.windowWidth > 1024 ? "need-hide" : "close-icon"
+            }
+            onClick={this.handleCloseMenu}
+            src={closeIcon}
+            alt="close"
+          />
+        </div>
+
         <div
           className={styles["content"]}
           dangerouslySetInnerHTML={{ __html: this.state.content }}
