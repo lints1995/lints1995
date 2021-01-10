@@ -23,7 +23,7 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  // padding-right: 30px;
+  padding-right: 30px;
 }
 .catalog-wrap {
   width: 100%;
@@ -68,7 +68,7 @@
   position: absolute;
   width: 30px;
   height: 30px;
-  bottom: 80px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
@@ -91,7 +91,12 @@
     left: 0;
     transform: translateY(0);
     padding-top: 40px;
+    padding-right: 0;
     z-index: 999;
+  }
+  .catalog-wrap {
+    height: 80vh;
+    overflow-y: scroll;
   }
   .catalog {
     width: 70%;
