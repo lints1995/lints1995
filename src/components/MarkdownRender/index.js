@@ -8,6 +8,7 @@ import resetMDStyles from "./resetMD.module.scss";
 import styles from "./index.module.scss";
 import menuIcon from "../../assets/images/menu.png";
 import closeIcon from "../../assets/images/close.png";
+import topIcon from "../../assets/images/top.png";
 
 class MarkdownRender extends React.Component {
   constructor(props) {
@@ -18,6 +19,9 @@ class MarkdownRender extends React.Component {
     this.handleShowMenu = this.handleShowMenu.bind(this);
     this.handleCloseMenu = this.handleCloseMenu.bind(this);
     this.monitorWindowResize = this.monitorWindowResize.bind(this);
+    this.handleBackTop = this.handleBackTop.bind(this);
+    this.handleScrollIntoView = this.handleScrollIntoView.bind(this);
+    this.handleWindowScroll = this.handleWindowScroll.bind(this);
     this.state = {
       content: "",
       titleLists: [],
@@ -26,12 +30,17 @@ class MarkdownRender extends React.Component {
       isShowCatalog: false,
       windowWidth: 0,
       minWindowSize: 1024,
+      scrollTop: 0,
     };
   }
   componentDidMount() {
     this.getWindowWidth();
     this.monitorWindowResize();
     this.getContent();
+    window.addEventListener("scroll", this.handleWindowScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleWindowScroll, false);
   }
   getWindowWidth() {
     this.setState({
@@ -44,19 +53,22 @@ class MarkdownRender extends React.Component {
     };
   }
   generateContentCatalog() {
-    // 生成一级菜单
-    let titleArr = document.getElementsByTagName("h1");
-    let arr = [];
-    for (let index = 0; index < titleArr.length; index++) {
-      const element = titleArr[index];
+    // 生成菜单
+    let content = document.getElementById("content").children;
+    let titleLists = [];
+    for (let index = 0; index < content.length; index++) {
+      let element = content[index];
       let textContent = element.textContent;
-      arr.push(textContent);
-      element.setAttribute("id", `${textContent}`);
+      if (element.tagName.includes("H1") || element.tagName.includes("H2")) {
+        let tagName = `${element.tagName}-${textContent}`;
+        element.setAttribute("id", tagName);
+        titleLists.push(tagName);
+      }
     }
     this.setState({
       isShow: true,
-      titleLists: arr,
-      currentSelectCatalog: arr.length > 0 ? arr[0] : "",
+      titleLists,
+      currentSelectCatalog: titleLists.length > 0 ? titleLists[0] : "",
     });
   }
   getContent() {
@@ -93,10 +105,7 @@ class MarkdownRender extends React.Component {
     this.setState({
       currentSelectCatalog: text,
     });
-    let element = document.getElementById(text);
-    element.scrollIntoView({
-      behavior: "smooth",
-    });
+    this.handleScrollIntoView(text);
   }
   handleShowMenu() {
     this.setState({
@@ -106,6 +115,25 @@ class MarkdownRender extends React.Component {
   handleCloseMenu() {
     this.handleShowMenu();
   }
+  handleScrollIntoView(id) {
+    let element = document.getElementById(id);
+    element.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+  handleBackTop() {
+    this.handleScrollIntoView(this.state.titleLists[0]);
+  }
+  handleWindowScroll() {
+    // window.onscroll = () => {
+    let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    this.setState({
+      scrollTop,
+    });
+    // };
+  }
+
   render() {
     return (
       <div className={styles["detail-container"]}>
@@ -131,7 +159,7 @@ class MarkdownRender extends React.Component {
             {this.state.titleLists.map((el, index) => {
               return (
                 <li
-                  className="catalog"
+                  className={el.includes("H1") ? "catalog" : "sub-catalog"}
                   key={index}
                   onClick={() => this.handleClick(el)}
                 >
@@ -149,7 +177,9 @@ class MarkdownRender extends React.Component {
                         : "catalog-text-default"
                     }
                   >
-                    {el}
+                    {el.includes("H1-") || el.includes("H2-")
+                      ? el.split("-")[1]
+                      : "暂无"}
                   </p>
                 </li>
               );
@@ -169,8 +199,15 @@ class MarkdownRender extends React.Component {
 
         <div
           className={resetMDStyles["content"]}
+          id="content"
           dangerouslySetInnerHTML={{ __html: this.state.content }}
         ></div>
+        <img
+          className={this.state.scrollTop > 2000 ? "back-top" : "need-hide"}
+          onClick={this.handleBackTop}
+          src={topIcon}
+          alt="top"
+        />
       </div>
     );
   }
