@@ -125,15 +125,12 @@ class MarkdownRender extends React.Component {
     this.handleScrollIntoView(this.state.titleLists[0]);
   }
   handleWindowScroll() {
-    // window.onscroll = () => {
     let scrollTop =
       document.documentElement.scrollTop || document.body.scrollTop;
     this.setState({
       scrollTop,
     });
-    // };
   }
-
   render() {
     return (
       <div className={styles["detail-container"]}>
