@@ -71,30 +71,26 @@ class MarkdownRender extends React.Component {
       currentSelectCatalog: titleLists.length > 0 ? titleLists[0] : "",
     });
   }
-  getContent() {
-    getRequest({
+  async getContent() {
+    let res = await getRequest({
       url: `/md/${this.props.match.params.md}.md`,
-    }).then((res) => {
-      let data = md({
-        html: true,
-        linkify: true,
-        typographer: true,
-        highlight: function (str, lang) {
-          if (lang && hljs.getLanguage(lang)) {
-            try {
-              return `<pre class="hljs"><code>${
-                hljs.highlight(lang, str).value
-              }</code></pre>`;
-            } catch (__) {}
-          }
-          return "";
-        },
-      }).render(res);
-      this.setState({
-        content: data.replace("<p>[TOC]</p>", ""), // 删除markdown文件的目录标示
-      });
-      this.generateContentCatalog();
     });
+    let articleData = md({
+      html: true,
+      linkify: true,
+      typographer: true,
+      highlight: (str, lang) => {
+        return lang && hljs.getLanguage(lang)
+          ? `<pre class="hljs"><code>${
+              hljs.highlight(lang, str).value
+            }</code></pre>`
+          : "<p>文章渲染失败</p>";
+      },
+    }).render(res);
+    this.setState({
+      content: articleData.replace("<p>[TOC]</p>", ""), // 删除markdown文件的目录标示
+    });
+    this.generateContentCatalog();
   }
   handleClick(text) {
     if (this.state.windowWidth <= this.state.minWindowSize) {
