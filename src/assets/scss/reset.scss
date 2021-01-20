@@ -151,3 +151,8 @@ body {
 a {
   color: #333;
 }
+
+img {
+  // 去除移动端上点击图片的背景底色
+  -webkit-tap-highlight-color: transparent;
+}
