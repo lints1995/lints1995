@@ -138,21 +138,22 @@ function stopBubble(e) {
 
 ```js
 function sorts(arr) {
-  let len = arr.length - 1;
+  let len = arr.length;
   for (let i = 0; i < len; i++) {
-    for (let j = 0; j < len - i; j++) {
-      // 相邻元素两两对比，元素交换，大的元素交换到后面
-      if (arr[j] > arr[j + 1]) {
-        let max = arr[j];
-        arr[j] = arr[j + 1];
+    for (let j = 0; j < len - 1; j++) {
+      let max = arr[j];
+      let min = arr[j + 1];
+      if (max > min) {
+        arr[j] = min;
         arr[j + 1] = max;
       }
     }
   }
   return arr;
 }
-let foo = [2, 3, 1, 1, 3, 76, 50];
+let foo = [2, 4, 0, 1, 3, 76, 50];
 sorts(foo);
+// 输出 [0, 1, 2, 3, 4, 50, 76]
 ```
 
 ## sort 排序
