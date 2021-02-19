@@ -2,11 +2,11 @@
 
 # 基本数据类型
 
-```javascript
+```js
 String、Boolean、Number、Null、undefined、Object
 ```
 
-检测数据类型方法
+## 检测数据类型方法
 
 ```js
 Object.prototype.toString.call(value).slice(8, -1);
@@ -68,7 +68,7 @@ callback 作为请求成功返回后的回调函数，接收返回数据
 
 # 遍历(map,for...in...,forEach)
 
-### Map
+### map
 
 ```js
 

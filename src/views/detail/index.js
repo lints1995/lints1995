@@ -1,4 +1,4 @@
-import MarkdownRender from "../../components/MarkdownRender";
+import MarkdownRender from "../../components/Render";
 import Loading from "../../components/Loading";
 import { useEffect, useState } from "react";
 
