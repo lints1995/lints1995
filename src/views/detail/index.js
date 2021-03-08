@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
 import MarkdownRender from "../../components/Render";
 import Loading from "../../components/Loading";
-import { useEffect, useState } from "react";
 
 function Detail() {
   const [isShow, setIsShow] = useState(false);
   useEffect(() => {
+    // 模拟数据请求，加载动画展示
     let timer = setTimeout(() => {
       setIsShow(true);
     }, 500);
