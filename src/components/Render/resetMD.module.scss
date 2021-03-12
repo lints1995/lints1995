@@ -44,15 +44,23 @@
     padding: 10px 0;
     font-weight: 400;
   }
-  ul > li {
-    font-weight: 600;
-    padding: 12px 0;
-  }
   img {
     display: block;
     width: 80%;
     height: auto;
     margin: 0 auto;
     cursor: pointer;
+  }
+  table,
+  td,
+  th {
+    border: 1px solid #dfdfdd;
+  }
+  td,
+  th {
+    padding: 10px;
+  }
+  a {
+    color: #42b983;
   }
 }

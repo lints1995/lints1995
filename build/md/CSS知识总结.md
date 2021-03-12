@@ -14,11 +14,9 @@
 1. box-sizing: content-box 是 W3C 盒子模型（默认标准盒模型）
 2. box-sizing: border-box 是 IE 盒子模型
 
-## 参考：
+## 参考
 
-- [MDN-CSS 基础框盒模型介绍](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-- [CSDN-css 的两种盒模型](https://blog.csdn.net/zwkkkk1/article/details/79678177)
-
+- [盒模型](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model)
 # 布局
 
 ## float 布局
@@ -40,13 +38,10 @@ _绝对定位的元素忽略 float 属性_
 
 指定一个元素是否必须移动(清除浮动后)到在它之前的*浮动元素下面*
 
-### 参考：
+### 参考
 
-- [MDN-float](https://developer.mozilla.org/zh-CN/docs/CSS/float)
-- [菜鸟教程-CSS float 属性](https://www.runoob.com/cssref/pr-class-float.html)
-- [MDN-float clear](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear)
-- [掘金-CSS 中的浮动和清除浮动](https://juejin.im/entry/580479b85bbb50005b7c5083)
-
+- [float](https://developer.mozilla.org/zh-CN/docs/CSS/float)
+- [clear](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear)
 ### position 布局
 
 用于指定一个元素在文档中的位置
@@ -60,7 +55,7 @@ _绝对定位的元素忽略 float 属性_
 | absolute | 相对于父级有定位的元素定位 |
 | fixed    | 相对于浏览器可视区域定位   |
 
-#### 参考：
+#### 参考
 
 - [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)
 

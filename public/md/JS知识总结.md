@@ -24,8 +24,7 @@ Object.prototype.toString.call(value).slice(8, -1);
 - 端口  
   IE 未将端口号纳入到同源的检测中，其他一致的情况下，不同的端口号不受访问约束
 
-### 参考：
-
+### 参考
 - [浏览器的同源策略](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
 
 ## 跨域解决方案
@@ -50,8 +49,7 @@ document.getElementsByClassName("head")[0].appendChild(script);
 https://www.foo.com?id=1 get 请求地址和参数  
 callback 作为请求成功返回后的回调函数，接收返回数据
 
-#### 参考：
-
+#### 参考
 - [浅谈 JSONP 的原理与实现](https://segmentfault.com/a/1190000007232373)
 
 ### 跨域资源共享(CORS)
@@ -59,10 +57,8 @@ callback 作为请求成功返回后的回调函数，接收返回数据
 通过服务器端配置跨域请求来实现访问另一个域的资源
 支持所有请求类型
 
-#### 参考：
-
+#### 参考
 - [跨源资源共享（CORS）](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
-- [跨域资源共享 CORS 详解](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
 还有其他方法能实现跨域资源访问如 img，link 标签等。
 
@@ -175,6 +171,5 @@ arr.sort((a, b) => {
 
 无法保证时间和空间复杂度
 
-### 参考：
-
-- [MDN Array.prototype.sort()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+### 参考
+- [Array.prototype.sort()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
