@@ -8,6 +8,7 @@
   startTime: "", // 项目开始日期
   endTime: "", // 项目结束日期
   images: [], // 项目相关介绍图片
+  url:"" // 项目链接
  */
 
 const PROJECT = [
@@ -26,6 +27,7 @@ const PROJECT = [
     startTime: "",
     endTime: "",
     images: [],
+    url: "",
   },
   {
     id: 2,
@@ -36,6 +38,7 @@ const PROJECT = [
     startTime: "",
     endTime: "",
     images: [],
+    url: "",
   },
   {
     id: 3,
@@ -51,6 +54,7 @@ const PROJECT = [
     startTime: "",
     endTime: "",
     images: [],
+    url: "",
   },
   {
     id: 4,
@@ -67,6 +71,7 @@ const PROJECT = [
     startTime: "2020-01-01",
     endTime: "2020-01-02",
     images: [],
+    url: "",
   },
   {
     id: 5,
@@ -81,6 +86,7 @@ const PROJECT = [
     startTime: "",
     endTime: "",
     images: [],
+    url: "",
   },
   {
     id: 6,
@@ -96,6 +102,7 @@ const PROJECT = [
     startTime: "",
     endTime: "",
     images: [],
+    url: "",
   },
 ];
 
