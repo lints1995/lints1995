@@ -16,7 +16,7 @@ const PROJECT = [
     id: 1,
     name: "鲜活Go-后台管理系统",
     discription:
-      "为鲜活go订奶前端app，公众号，小程序提供日常运营维护，管理工作，以及为各分子公司提供服务。",
+      "为鲜活go订奶前端app，公众号，小程序提供日常运营维护，管理工作，以及为各分子公司提供日常订奶服务。",
     content: `1.参与订单(包括配送和结算)，征订，运营，奶站围栏映射模块需求讨论和需求评审;<br/>
     2.使用Vue.js,Nuxt.js搭建,使用ElementUI构建用户界面并集成Echarts和高德地图组件功能;
     3.对需要UI的页面，对接UI工程师完成设计要求;<br/>
@@ -32,9 +32,12 @@ const PROJECT = [
   {
     id: 2,
     name: "鲜活Go-微信小程序",
-    discription: "",
-    content: ``,
-    summary: ``,
+    discription: "面向C端用户商城，提供各类定制化订奶服务",
+    content: `1.参加小优天天赚营销系统需求评审;<br/>
+    2.负责开发小优天天赚实名认证和改版工作;<br/>
+    3.高质量还原UI效果;<br/>
+    4.及时处理测试反馈bug，确保按时上线;`,
+    summary: `封装AWS S3上传图片功能，为开发节省时间；`,
     startTime: "",
     endTime: "",
     images: [],

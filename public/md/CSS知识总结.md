@@ -2,17 +2,16 @@
 
 # 盒子模型
 
-- 盒子模型构成：content+padding+border+margin
+盒子模型构成：content+padding+border+margin
 
 ## 区别
 
-1. 标准盒子模型：width(包含：content)
-2. IE 盒子模型（ie5,6）：width(包含：content+padding+border)
+标准盒子模型：width(包含：content)
+IE 盒子模型（ie5,6）：width(包含：content+padding+border)
 
-- 两种盒子模型之间的转换：
-
-1. box-sizing: content-box 是 W3C 盒子模型（默认标准盒模型）
-2. box-sizing: border-box 是 IE 盒子模型
+## 两种盒子模型之间的转换
+ box-sizing: content-box 是 W3C 盒子模型（默认标准盒模型）
+ box-sizing: border-box 是 IE 盒子模型
 
 ## 参考
 

@@ -24,7 +24,21 @@ const NOTE = [
     id: 4,
     name: "你不知道的JS笔记-上",
     description: "你不知道的JS笔记",
-    date: "2020-12-02",
+    date: "2021-12-02",
+    tags: ["深入"],
+  },
+  {
+    id: 5,
+    name: "你不知道的JS笔记-中",
+    description: "你不知道的JS笔记",
+    date: "2020-03-16",
+    tags: ["深入"],
+  },
+  {
+    id: 6,
+    name: "你不知道的JS笔记-下",
+    description: "你不知道的JS笔记",
+    date: "2020-03-16",
     tags: ["深入"],
   },
 ];

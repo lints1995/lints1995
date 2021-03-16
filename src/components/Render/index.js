@@ -72,8 +72,9 @@ class MarkdownRender extends React.Component {
     });
   }
   async getContent() {
+    let articleName = this.props.match.params.md;
     let res = await getRequest({
-      url: `/md/${this.props.match.params.md}.md`,
+      url: `/md/${articleName}.md`,
     });
     let articleData = md({
       html: true,
@@ -87,8 +88,14 @@ class MarkdownRender extends React.Component {
           : "<p>文章渲染失败</p>";
       },
     }).render(res);
+
     this.setState({
-      content: articleData.replace("<p>[TOC]</p>", ""), // 删除markdown文件的目录标示
+      content: articleData
+        ? articleData.replace(
+            "<p>[TOC]</p>",
+            `<div class='title'>${articleName}</div>`
+          )
+        : `<div class='title'>${articleName}</div>`, // 删除markdown文件的目录标示
     });
     this.generateContentCatalog();
   }

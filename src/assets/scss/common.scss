@@ -8,7 +8,7 @@
 }
 
 .detail-container {
-  margin: 20px auto 120px auto;
+  margin: 0 auto 120px auto;
 }
 .container-loading {
   position: fixed;
@@ -94,6 +94,17 @@
   z-index: 998;
   transition: all 0.3s linear;
   cursor: pointer;
+}
+
+.title {
+  width: 100%;
+  height: auto;
+  font-size: 0.16rem;
+  font-weight: 400;
+  line-height: 100%;
+  border-bottom: 1px solid #dfdfdf;
+  padding: 10px 0;
+  margin: 0.2rem 0;
 }
 // 页面响应式布局
 @media screen and (max-width: 1024px) {
