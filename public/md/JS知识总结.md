@@ -5,7 +5,6 @@
 ```js
 String、Boolean、Number、Null、undefined、Object
 ```
-
 ## 检测数据类型方法
 
 ```js
@@ -25,6 +24,7 @@ Object.prototype.toString.call(value).slice(8, -1);
   IE 未将端口号纳入到同源的检测中，其他一致的情况下，不同的端口号不受访问约束
 
 ### 参考
+
 - [浏览器的同源策略](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
 
 ## 跨域解决方案
@@ -50,6 +50,7 @@ https://www.foo.com?id=1 get 请求地址和参数
 callback 作为请求成功返回后的回调函数，接收返回数据
 
 #### 参考
+
 - [浅谈 JSONP 的原理与实现](https://segmentfault.com/a/1190000007232373)
 
 ### 跨域资源共享(CORS)
@@ -58,6 +59,7 @@ callback 作为请求成功返回后的回调函数，接收返回数据
 支持所有请求类型
 
 #### 参考
+
 - [跨源资源共享（CORS）](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
 
 还有其他方法能实现跨域资源访问如 img，link 标签等。
@@ -100,7 +102,7 @@ function stopBubble(e) {
 ```
 
 # 事件委派
-
+利用事件冒泡原理实现事件委派
 ```html
 <body>
   <ul id="lists">
@@ -119,11 +121,6 @@ function stopBubble(e) {
   </script>
 </body>
 ```
-
-## 描述
-
-利用事件冒泡原理实现事件委派
-
 ## 优点
 
 减少了 DOM 操作，后期动态添加的子节点依旧生效
@@ -172,4 +169,5 @@ arr.sort((a, b) => {
 无法保证时间和空间复杂度
 
 ### 参考
+
 - [Array.prototype.sort()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)

@@ -23,7 +23,6 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  padding-right: 30px;
   overflow-y: scroll;
 }
 .catalog-wrap {
@@ -108,7 +107,7 @@
 }
 // 页面响应式布局
 @media screen and (max-width: 1024px) {
-  // 页面宽度小于1024时
+  // 页面宽度小于1024px时
   .container,
   .detail-container {
     width: 90%;
