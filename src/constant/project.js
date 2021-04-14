@@ -109,7 +109,7 @@ const PROJECT = [
   },
   {
     id: 7,
-    name: "学财社",
+    name: "习财社",
     discription: ``,
     content: ``,
     summary: ``,

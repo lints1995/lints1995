@@ -5,6 +5,7 @@
 ```js
 String、Boolean、Number、Null、undefined、Object
 ```
+
 ## 检测数据类型方法
 
 ```js
@@ -102,7 +103,9 @@ function stopBubble(e) {
 ```
 
 # 事件委派
+
 利用事件冒泡原理实现事件委派
+
 ```html
 <body>
   <ul id="lists">
@@ -121,6 +124,7 @@ function stopBubble(e) {
   </script>
 </body>
 ```
+
 ## 优点
 
 减少了 DOM 操作，后期动态添加的子节点依旧生效
@@ -171,3 +175,6 @@ arr.sort((a, b) => {
 ### 参考
 
 - [Array.prototype.sort()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+# 原型
+![image](../images/2021041401.png)
