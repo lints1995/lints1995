@@ -5,7 +5,6 @@
  */
 const fs = require("fs");
 fs.readdir("./public/md", (err, files) => {
-  console.log(err, files);
   if (err) throw new Error("文件读取失败！");
   let arr = [];
   files.map((item, index) => {
