@@ -20,6 +20,13 @@ const NOTE = [
     date: "2020-12-02",
     tags: ["js", "面试", "basics"],
   },
+  {
+    id: 4,
+    name: "TypeScript入门教程",
+    description: "TypeScript入门教程",
+    date: "2020-12-02",
+    tags: ["ts", "basics"],
+  },
 ];
 
 export default NOTE;
