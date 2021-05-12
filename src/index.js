@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
-import "./assets/js/rem";
+import "./assets/common/rem";
 import "./assets/scss/reset.scss";
 import "./assets/scss/common.scss";
 import router from "./router";

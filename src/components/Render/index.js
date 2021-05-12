@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import md from "markdown-it";
 import hljs from "highlight.js";
-import { getRequest } from "../../assets/js/request";
+import { getRequest } from "../../assets/common/request";
 import "highlight.js/styles/atom-one-dark.css";
 import resetMDStyles from "./resetMD.module.scss";
 import styles from "./index.module.scss";
