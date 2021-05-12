@@ -4,23 +4,41 @@
  * 生成文件位置/const/note.js
  */
 const fs = require("fs");
-fs.readdir("./public/md", (err, files) => {
-  if (err) throw new Error("文件读取失败！");
-  let arr = [];
-  files.map((item, index) => {
-    let _item = item.replace(".md", "");
-    arr.push({
-      id: (index += 1),
-      name: _item,
-      description: _item,
-      date: "2020-12-02",
+
+function readFiles(path) {
+  return new Promise((resolve, reject) => {
+    fs.readdir(path, (err, files) => {
+      if (err) return reject("文件读取失败");
+      resolve(files);
     });
   });
-  fs.writeFile(
-    "./src/const/note.js",
-    `let NOTE = ${JSON.stringify(arr)}; export default NOTE;`,
-    (err1) => {
-      if (err1) throw new Error("写入文件出错");
-    }
-  );
-});
+}
+function writeFile(path, content) {
+  new Promise((resolve, reject) => {
+    fs.writeFile(path, content, (err) => {
+      if (err) return reject("文件写入失败");
+      resolve(true);
+    });
+  });
+}
+
+readFiles("./public/md")
+  .then(async (files) => {
+    let arr = [];
+    files.map((item, index) => {
+      let _item = item.replace(".md", "");
+      arr.push({
+        id: (index += 1),
+        name: _item,
+        description: _item,
+        date: "2020-12-02",
+      });
+    });
+    writeFile(
+      "./src/const/note.js",
+      `let NOTE = ${JSON.stringify(arr)}; export default NOTE;`
+    );
+  })
+  .catch((err) => {
+    throw new Error(err);
+  });
