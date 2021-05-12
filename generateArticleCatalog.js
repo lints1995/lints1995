@@ -4,7 +4,8 @@
  * 生成文件位置/const/note.js
  */
 const fs = require("fs");
-fs.readdir("../../../public/md", (err, files) => {
+fs.readdir("./public/md", (err, files) => {
+  console.log(err, files);
   if (err) throw new Error("文件读取失败！");
   let arr = [];
   files.map((item, index) => {
@@ -16,7 +17,7 @@ fs.readdir("../../../public/md", (err, files) => {
     });
   });
   fs.writeFile(
-    "../../const/note.js",
+    "./src/const/note.js",
     `let NOTE = ${JSON.stringify(arr)}; export default NOTE;`,
     (err1) => {
       if (err1) throw new Error("写入文件出错");
