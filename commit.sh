@@ -1,9 +1,8 @@
 # !/bin/zsh
 # 确保脚本抛出遇到的错误
 set -e
-printf '生成目录中...'
+# 生成文章目录
 node generateArticleCatalog.js
-printf '目录生成完成'
 # 生成静态文件
 npm run build
 # 提交
