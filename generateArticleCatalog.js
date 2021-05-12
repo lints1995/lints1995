@@ -8,10 +8,11 @@ fs.readdir("./public/md", (err, files) => {
   if (err) throw new Error("文件读取失败！");
   let arr = [];
   files.map((item, index) => {
+    let _item = item.replace(".md", "");
     arr.push({
       id: (index += 1),
-      name: item,
-      description: item,
+      name: _item,
+      description: _item,
       date: "2020-12-02",
     });
   });
