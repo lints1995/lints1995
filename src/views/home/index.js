@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading";
-import NOTE from "../../constant/note";
+import NOTE from "../../const/note";
 import timeLogo from "../../assets/images/icon_time.png";
 import styles from "./index.module.scss";
 

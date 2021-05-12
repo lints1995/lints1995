@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import MENU from "../../constant/menu";
+import MENU from "../../const/menu";
 import styles from "./index.module.scss";
 
 class Header extends React.Component {

@@ -1,4 +1,4 @@
-import projectList from "../../constant/project";
+import projectList from "../../const/project";
 import styles from "./index.module.scss";
 
 function Project() {
