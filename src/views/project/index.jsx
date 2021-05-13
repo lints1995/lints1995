@@ -11,12 +11,17 @@ function Project() {
         <h2 className={styles["item-sub-title"]}>项目描述：</h2>
         <p className={styles["item-content"]}>{item.discription}</p>
         <h2 className={styles["item-sub-title"]}>职责：</h2>
-        <div
-          className={styles["item-content"]}
-          dangerouslySetInnerHTML={{ __html: item.content }}
-        ></div>
+        <div className={styles["item-content"]}>
+          {item.content.map((text, index) => {
+            return <p>{`${(index += 1)}.${text};`}</p>;
+          })}
+        </div>
         <h2 className={styles["item-sub-title"]}>总结：</h2>
-        <p className={styles["item-content"]}>{item.summary}</p>
+        <p className={styles["item-content"]}>
+          {item.summary.map((text, index) => {
+            return <p>{`${(index += 1)}.${text};`}</p>;
+          })}
+        </p>
       </div>
     );
   });
