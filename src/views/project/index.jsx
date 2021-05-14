@@ -13,15 +13,15 @@ function Project() {
         <h2 className={styles["item-sub-title"]}>职责：</h2>
         <div className={styles["item-content"]}>
           {item.content.map((text, index) => {
-            return <p>{`${(index += 1)}.${text};`}</p>;
+            return <p key={index}>{`${(index += 1)}.${text};`}</p>;
           })}
         </div>
         <h2 className={styles["item-sub-title"]}>总结：</h2>
-        <p className={styles["item-content"]}>
+        <div className={styles["item-content"]}>
           {item.summary.map((text, index) => {
-            return <p>{`${(index += 1)}.${text};`}</p>;
+            return <p key={index}>{`${(index += 1)}.${text};`}</p>;
           })}
-        </p>
+        </div>
       </div>
     );
   });
