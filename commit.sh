@@ -3,7 +3,7 @@
 set -e
 # 生成文章目录
 node generateArticleCatalog.js
-# 生成静态文件
+# 打包部署静态文件
 npm run build
 # 提交
 git add -A

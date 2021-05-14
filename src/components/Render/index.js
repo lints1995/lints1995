@@ -48,6 +48,7 @@ class MarkdownRender extends React.Component {
     });
   }
   monitorWindowResize() {
+    // 监听窗口变化
     window.onresize = () => {
       this.getWindowWidth();
     };
@@ -78,7 +79,7 @@ class MarkdownRender extends React.Component {
     });
     let articleData = md({
       html: true,
-      linkify: true,
+      linkify: false,
       typographer: true,
       highlight: (str, lang) => {
         return lang && hljs.getLanguage(lang)
@@ -128,6 +129,7 @@ class MarkdownRender extends React.Component {
     this.handleScrollIntoView(this.state.titleLists[0]);
   }
   handleWindowScroll() {
+    // 滚动事件
     let scrollTop =
       document.documentElement.scrollTop || document.body.scrollTop;
     this.setState({
