@@ -1,0 +1,26 @@
+.items {
+  width: 100%;
+  height: auto;
+}
+.item {
+  display: inline-block;
+  width: 22px;
+  height: 28px;
+  border: 1px solid #dfdfdf;
+  padding: 0 4px;
+  margin: 0 5px;
+  line-height: 28px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.item-active {
+  color: #fff;
+  background: #42b983;
+}
+.item-default {
+  background: #f4f4f5;
+  color: #000;
+  font-weight: 600;
+}
