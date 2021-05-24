@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading";
+import Page from "../../components/Page";
 import NOTE from "../../const/note";
 import timeLogo from "../../assets/images/icon_time.png";
 import styles from "./index.module.scss";
@@ -53,6 +54,7 @@ function Home() {
               );
             })}
           </ul>
+          <Page />
         </div>
       )}
     </div>
