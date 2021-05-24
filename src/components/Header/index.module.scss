@@ -1,7 +1,7 @@
 .header {
   position: fixed;
   width: 100%;
-  height: 50px;
+  height: 60px;
   border: 1px solid #efefef;
   background: #fff;
   top: 0;
@@ -10,12 +10,31 @@
 }
 .items {
   display: flex;
-  float: right;
+  float: left;
   width: 200px;
-  height: 50px;
-  line-height: 50px;
+  height: 60px;
+  line-height: 60px;
   text-align: center;
   transition: all 0.2s linear;
+}
+.search-wrap {
+  position: fixed;
+  width: 1.4rem;
+  height: 40px;
+  right: 0.2rem;
+  top: 10px;
+  .search-input {
+    position: absolute;
+    width: 1.4rem;
+    height: 40px;
+    text-indent: 12px;
+    border-radius: 8px;
+    border: 1px solid #dfdfdf;
+    font-size: 14px;
+    &::placeholder {
+      color: #999;
+    }
+  }
 }
 .item {
   flex: 1;
@@ -28,7 +47,7 @@
 .link {
   display: inline-block;
   width: 100%;
-  height: 50px;
+  height: 60px;
 }
 
 .item-active {

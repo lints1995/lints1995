@@ -8,18 +8,23 @@ import styles from "./index.module.scss";
 
 function Home() {
   const [isShow, setIsShow] = useState(false);
+  const [getLists, setLists] = useState([]);
   useEffect(() => {
     let timer = setTimeout(() => {
       setIsShow(true);
     }, 500);
+    setLists([...NOTE]);
     return () => {
       clearTimeout(timer);
     };
   }, []); // 优化传递一个空数组让useEffect函数执行一次
-
   return (
     <div>
-      <Header />
+      <Header
+        search={(val) => {
+          setLists(val);
+        }}
+      />
       {!isShow ? (
         <div className="container-loading">
           <Loading />
@@ -27,7 +32,7 @@ function Home() {
       ) : (
         <div className="container">
           <ul>
-            {NOTE.map((item) => {
+            {getLists.map((item) => {
               return (
                 <li key={item.id} className={styles.item}>
                   <Link to={`/detail/${item.name}`}>

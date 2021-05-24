@@ -1,28 +1,10 @@
-// 滚动条的整体样式
-::-webkit-scrollbar {
-  width: 6px;
-}
-// 滚动条滑轨
-::-webkit-scrollbar-track {
-  border-radius: 20px;
-  background-color: rgba($color: #dfdfdf, $alpha: 0.8);
-}
-// 滚动条滑块
-::-webkit-scrollbar-thumb {
-  background-color: rgba($color: #000, $alpha: 0.5);
-  border-radius: 20px;
-}
-// 滚动条上下两端的按钮
-::-webkit-scrollbar-button {
-  height: 10px;
-}
 .container,
 .detail-container {
   width: 60%;
   height: auto;
 }
 .container {
-  margin: 82px auto 120px auto;
+  margin: 92px auto 120px auto;
 }
 
 .detail-container {
