@@ -19,6 +19,10 @@ function Home() {
       clearTimeout(timer);
     };
   }, []); // 优化传递一个空数组让useEffect函数执行一次
+  function handlePageChange(data) {
+    // 页码数据
+    setLists([...data]);
+  }
   return (
     <div>
       <Header
@@ -54,7 +58,7 @@ function Home() {
               );
             })}
           </ul>
-          <Page />
+          <Page change={handlePageChange} />
         </div>
       )}
     </div>
