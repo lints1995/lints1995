@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import MENU from "../../const/menu";
 import NOTE from "../../const/note";
 import styles from "./index.module.scss";
+import logo from "../../assets/images/logo.png";
 
 class Header extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class Header extends React.Component {
   render() {
     return (
       <header className={styles.header}>
+        <img className={styles.logo} src={logo} alt="logo" />
         <ul className={styles.items}>
           {MENU.map((item) => {
             return (
