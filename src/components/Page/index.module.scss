@@ -7,7 +7,6 @@
   display: inline-block;
   width: 22px;
   height: 28px;
-  border: 1px solid #dfdfdf;
   padding: 0 4px;
   margin: 0 5px;
   line-height: 28px;
@@ -15,13 +14,18 @@
   font-size: 14px;
   border-radius: 2px;
   cursor: pointer;
+  &:hover {
+    color: #42b983;
+  }
 }
 .item-active {
   color: #fff;
   background: #42b983;
+  &:hover {
+    color: #fff;
+  }
 }
 .item-default {
   background: #f4f4f5;
-  color: #000;
-  font-weight: 600;
+  color: #606266;
 }
