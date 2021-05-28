@@ -7,10 +7,12 @@ import NOTE from "../../const/note";
 import { PER_PAGE } from "../../const/config";
 import timeLogo from "../../assets/images/icon_time.png";
 import styles from "./index.module.scss";
+import Menu from "../../components/Menu";
 
-function Home() {
+function Home(props) {
   const [isShow, setIsShow] = useState(false);
   const [getLists, setLists] = useState([]);
+  const [getMenuBox, setMenuBox] = useState(false);
   useEffect(() => {
     let timer = setTimeout(() => {
       setIsShow(true);
@@ -24,9 +26,14 @@ function Home() {
     // 处理页码数据
     setLists([...NOTE.slice((page - 1) * PER_PAGE, page * PER_PAGE)]);
   }
+  function handleShowMenu() {
+    // 显示菜单
+    setMenuBox(!getMenuBox);
+  }
   return (
     <div>
       <Header
+        click={handleShowMenu}
         search={(val) => {
           setLists(val);
         }}
@@ -64,6 +71,11 @@ function Home() {
             total={NOTE.length}
             perPage={PER_PAGE}
           />
+          {getMenuBox ? (
+            <div className={styles["menu-box"]} onClick={handleShowMenu}>
+              <Menu props={props} />
+            </div>
+          ) : null}
         </div>
       )}
     </div>

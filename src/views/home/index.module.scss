@@ -38,3 +38,13 @@
   width: 10px;
   height: 10px;
 }
+
+.menu-box {
+  position: fixed;
+  left: 0;
+  top: 60px;
+  bottom: 0;
+  right: 0;
+  background: rgba($color: #fff, $alpha: 1);
+  z-index: 999;
+}

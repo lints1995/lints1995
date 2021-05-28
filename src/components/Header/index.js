@@ -1,22 +1,27 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import MENU from "../../const/menu";
+import { withRouter } from "react-router-dom";
 import NOTE from "../../const/note";
 import styles from "./index.module.scss";
-import logo from "../../assets/images/logo.png";
+import menuIcon from "../../assets/images/header-menu.png";
+import Menu from "../Menu";
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.judgeCurrentActivePath = this.judgeCurrentActivePath.bind(this);
     this.handleSearchInput = this.handleSearchInput.bind(this);
-    this.state = {};
+    this.handleShowMenu = this.handleShowMenu.bind(this);
+    this.getWindowWidth = this.getWindowWidth.bind(this);
+    this.state = {
+      windowWidth: 0,
+      minWindowSize: 1024,
+    };
   }
-  judgeCurrentActivePath = (path) => {
-    // 获取当前路径
-    let pathname = this.props.location.pathname;
-    return pathname === path ? styles["item-active"] : null;
-  };
+  componentDidMount() {
+    this.getWindowWidth();
+    window.onresize = () => {
+      this.getWindowWidth();
+    };
+  }
   handleSearchInput(e) {
     let { value } = e.target;
     if (!value) return this.props.search(NOTE);
@@ -28,38 +33,27 @@ class Header extends React.Component {
     }
     this.props.search(searchedArticle);
   }
+  handleShowMenu() {
+    this.props.click();
+  }
+  getWindowWidth() {
+    this.setState({
+      windowWidth: document.body.offsetWidth,
+    });
+  }
   render() {
     return (
       <header className={styles.header}>
-        <img className={styles.logo} src={logo} alt="logo" />
-        <ul className={styles.items}>
-          {MENU.map((item) => {
-            return (
-              <li className={styles.item} key={item.id}>
-                {item.path.includes("http") || item.path.includes("https") ? (
-                  <a
-                    className={this.judgeCurrentActivePath(item.path)}
-                    href={item.path}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {item.name}
-                  </a>
-                ) : (
-                  <Link
-                    className={[
-                      styles.link,
-                      this.judgeCurrentActivePath(item.path),
-                    ].join(" ")}
-                    to={item.path}
-                  >
-                    {item.name}
-                  </Link>
-                )}
-              </li>
-            );
-          })}
-        </ul>
+        <img
+          className={styles["menu-icon"]}
+          src={menuIcon}
+          alt="menu"
+          onClick={this.handleShowMenu}
+        />
+
+        {this.state.windowWidth > this.state.minWindowSize ? (
+          <Menu props={this.props} />
+        ) : null}
         {this.props.location.pathname === "/" ? (
           <div className={styles["search-wrap"]}>
             <input
