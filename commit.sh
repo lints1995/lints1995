@@ -6,9 +6,8 @@ node generateArticleCatalog.js
 # 打包部署静态文件
 npm run build
 # 提交
-read -p "提交分支：" branch
-git pull origin $branch
-git add -A
+git pull origin master
+git add .
 read -p "commit信息：" description
 git commit -m $description
-git push origin $branch
+git push origin master
