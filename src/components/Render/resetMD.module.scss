@@ -62,6 +62,16 @@
   a {
     color: #42b983;
   }
+  blockquote {
+    position: relative;
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-left: 3px solid #42b983;
+  }
+  ul li {
+    list-style: disc;
+  }
 }
 
 // 页面响应式布局

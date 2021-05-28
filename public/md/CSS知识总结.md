@@ -10,12 +10,14 @@
 IE 盒子模型（ie5,6）：width(包含：content+padding+border)
 
 ## 两种盒子模型之间的转换
- box-sizing: content-box 是 W3C 盒子模型（默认标准盒模型）
- box-sizing: border-box 是 IE 盒子模型
+
+box-sizing: content-box 是 W3C 盒子模型（默认标准盒模型）
+box-sizing: border-box 是 IE 盒子模型
 
 ## 参考
 
 - [盒模型](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model)
+
 # 布局
 
 ## float 布局
@@ -29,7 +31,7 @@ _绝对定位的元素忽略 float 属性_
 | ------------ | -------------------------------------------------- |
 | left         | 元素向左浮动                                       |
 | right        | 元素向右浮动                                       |
-| none         | 默认值。元素不浮动，并会显示在其在文本中出现的位置 |
+| none         | 默认值，元素不浮动，并会显示在其在文本中出现的位置 |
 | inline-start | 规表明元素必须浮动在其所在块容器的开始一侧         |
 | inline-end   | 表明元素必须浮动在其所在块容器的结束一侧           |
 
@@ -41,6 +43,7 @@ _绝对定位的元素忽略 float 属性_
 
 - [float](https://developer.mozilla.org/zh-CN/docs/CSS/float)
 - [clear](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear)
+
 ### position 布局
 
 用于指定一个元素在文档中的位置
