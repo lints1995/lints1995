@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading";
 import Page from "../../components/Page";
+import Menu from "../../components/Menu";
 import NOTE from "../../const/note";
+import styles from "./index.module.scss";
 import { PER_PAGE } from "../../const/config";
 import timeLogo from "../../assets/images/icon_time.png";
-import styles from "./index.module.scss";
-import Menu from "../../components/Menu";
 
 function Home(props) {
   const [isShow, setIsShow] = useState(false);
@@ -72,7 +72,7 @@ function Home(props) {
             perPage={PER_PAGE}
           />
           {getMenuBox ? (
-            <div className={styles["menu-box"]} onClick={handleShowMenu}>
+            <div className="menu-box" onClick={handleShowMenu}>
               <Menu props={props} />
             </div>
           ) : null}

@@ -8,7 +8,9 @@
   width: 100%;
   height: auto;
   cursor: pointer;
-  margin-bottom: 28px;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
 }
 .item-title {
   font-size: 18px;
@@ -37,14 +39,5 @@
 .item-time-icon {
   width: 10px;
   height: 10px;
-}
-
-.menu-box {
-  position: fixed;
-  left: 0;
-  top: 60px;
-  bottom: 0;
-  right: 0;
-  background: rgba($color: #fff, $alpha: 1);
-  z-index: 999;
+  margin-top: -2px;
 }
